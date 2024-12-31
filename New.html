@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ಹೊಸ ವರ್ಷದ ಶುಭಾಶಯಗಳು 2025</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #000428, #004e92);
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+    .countdown {
+      font-size: 5rem;
+      text-align: center;
+      animation: glow 1s infinite alternate;
+    }
+    .message {
+      display: none;
+      font-size: 2rem;
+      text-align: center;
+      margin-top: 20px;
+      animation: fadeIn 3s forwards;
+    }
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px gold, 0 0 20px red, 0 0 30px orange;
+      }
+      to {
+        text-shadow: 0 0 20px gold, 0 0 30px red, 0 0 40px orange;
+      }
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    .sparkle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: gold;
+      border-radius: 50%;
+      animation: sparkle 2s linear infinite;
+    }
+    @keyframes sparkle {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-50vh);
+        opacity: 0;
+      }
+      
+    }
+  </style>
+</head>
+<body>
+   
+    <div>
+        <div class="countdown" id="countdown">3</div><br>
+        <div class="message" id="message">🎉ಎಲ್ಲರಿಗೂ ಹೊಸ ವರ್ಷದ ಶುಭಾಶಯಗಳು 2025!  🎇<br>
+             ಹೊಸ ಆರಂಭಗಳು ನಿಮ್ಮದಾಗಲಿ ಎಂದೂ ಮುಗಿಯದ ಅವಕಾಶಗಳು, ಸಂತೋಷ ನಿಮ್ಮದಾಗಲಿ.<br>
+             🙏🙏🙏🙏<br>
+             ನಿಕಿತಾ ಶಿವಯೋಗಿ ಅವರಿಂದ
+        </div>
+        
+      </div>
+ 
+  <script>
+    const countdownEl = document.getElementById('countdown');
+    const messageEl = document.getElementById('message');
+    let countdown = 3;
+
+    // Countdown Timer
+    const timer = setInterval(() => {
+      countdown--;
+      if (countdown > 0) {
+        countdownEl.textContent = countdown;
+      } else {
+        clearInterval(timer);
+        countdownEl.style.display = 'none';
+        messageEl.style.display = 'block';
+        createSparkles();
+      }
+    }, 1000);
+
+    // Sparkles Effect
+    function createSparkles() {
+      for (let i = 0; i < 100; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.classList.add('sparkle');
+        sparkle.style.left = Math.random() * window.innerWidth + 'px';
+        sparkle.style.top = window.innerHeight + 'px';
+        sparkle.style.animationDelay = Math.random() * 2 + 's';
+        sparkle.style.animationDuration = Math.random() * 3 + 2 + 's';
+        document.body.appendChild(sparkle);
+
+        // Remove sparkles after animation
+        sparkle.addEventListener('animationend', () => {
+          sparkle.remove();
+        });
+      }
+    }
+  </script>
+</body>
+</html>
